@@ -20,8 +20,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="container mx-auto px-6 py-4">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
+        <div className="bg-background/40 backdrop-blur-xl border border-border/50 rounded-2xl shadow-elegant px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold tracking-tight">Akshaya Shree</h1>
             <div className="hidden md:flex gap-8">
