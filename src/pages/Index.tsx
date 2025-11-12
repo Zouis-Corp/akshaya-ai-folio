@@ -3,11 +3,19 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const Index = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const aboutSection = useIntersectionObserver({ threshold: 0.2 });
+  const experienceSection = useIntersectionObserver({ threshold: 0.2 });
+  const projectsSection = useIntersectionObserver({ threshold: 0.2 });
+  const skillsSection = useIntersectionObserver({ threshold: 0.2 });
+  const publicationsSection = useIntersectionObserver({ threshold: 0.2 });
+  const contactSection = useIntersectionObserver({ threshold: 0.2 });
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -29,13 +37,20 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        {/* Wave Background */}
+        {/* Animated Wave Background */}
         <div className="absolute inset-0 pointer-events-none opacity-10">
-          <svg className="absolute bottom-0 w-full h-64" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <svg className="absolute bottom-0 w-full h-64 animate-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
             <path 
               fill="currentColor" 
               className="text-muted-foreground"
               d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
+          </svg>
+          <svg className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path 
+              fill="currentColor" 
+              className="text-muted-foreground"
+              d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,154.7C672,160,768,224,864,234.7C960,245,1056,203,1152,181.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             />
           </svg>
         </div>
@@ -102,7 +117,13 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-gradient-card">
+      <section 
+        ref={aboutSection.ref as React.RefObject<HTMLElement>}
+        id="about" 
+        className={`py-20 px-6 bg-gradient-card transition-all duration-1000 ${
+          aboutSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-8">About Me</h3>
           <div className="grid md:grid-cols-2 gap-12">
@@ -146,7 +167,13 @@ const Index = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-20 px-6">
+      <section 
+        ref={experienceSection.ref as React.RefObject<HTMLElement>}
+        id="experience" 
+        className={`py-20 px-6 transition-all duration-1000 ${
+          experienceSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-12">Experience</h3>
           <div className="space-y-8">
@@ -188,7 +215,13 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-gradient-card">
+      <section 
+        ref={projectsSection.ref as React.RefObject<HTMLElement>}
+        id="projects" 
+        className={`py-20 px-6 bg-gradient-card transition-all duration-1000 ${
+          projectsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-12">Featured Projects</h3>
           <div className="grid md:grid-cols-2 gap-6">
@@ -228,7 +261,13 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6">
+      <section 
+        ref={skillsSection.ref as React.RefObject<HTMLElement>}
+        id="skills" 
+        className={`py-20 px-6 transition-all duration-1000 ${
+          skillsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-12">Technical Skills</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -294,7 +333,12 @@ const Index = () => {
       </section>
 
       {/* Publications */}
-      <section className="py-20 px-6 bg-gradient-card">
+      <section 
+        ref={publicationsSection.ref as React.RefObject<HTMLElement>}
+        className={`py-20 px-6 bg-gradient-card transition-all duration-1000 ${
+          publicationsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-8">Publications & Patents</h3>
           <Card className="p-6 border-border">
@@ -315,7 +359,13 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
+      <section 
+        ref={contactSection.ref as React.RefObject<HTMLElement>}
+        id="contact" 
+        className={`py-20 px-6 transition-all duration-1000 ${
+          contactSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
         <div className="container mx-auto max-w-4xl text-center">
           <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
           <p className="text-xl text-muted-foreground mb-12">
