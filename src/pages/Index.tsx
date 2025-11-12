@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code } from "lucide-react";
+import profileImage from "@/assets/profile.jpg";
 
 const Index = () => {
   const scrollToSection = (id: string) => {
@@ -27,20 +28,32 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
-                AI Engineer &
-                <br />
-                <span className="text-muted-foreground">Innovation Specialist</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
-                Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs. 
-                Currently delivering AI solutions at NIMIR Corporation.
-              </p>
-            </div>
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Wave Background */}
+        <div className="absolute inset-0 pointer-events-none opacity-10">
+          <svg className="absolute bottom-0 w-full h-64" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path 
+              fill="currentColor" 
+              className="text-muted-foreground"
+              d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
+          </svg>
+        </div>
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
+                  AI Engineer &
+                  <br />
+                  <span className="text-muted-foreground">Innovation Specialist</span>
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl">
+                  Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs. 
+                  Currently delivering AI solutions at NIMIR Corporation.
+                </p>
+              </div>
             
             <div className="flex flex-wrap gap-4">
               <Button variant="default" size="lg" asChild>
@@ -54,23 +67,35 @@ const Index = () => {
               </Button>
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank" rel="noopener noreferrer" 
-                 className="text-muted-foreground hover:text-foreground transition-smooth">
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a href="https://github.com/akshayashreeya" target="_blank" rel="noopener noreferrer"
-                 className="text-muted-foreground hover:text-foreground transition-smooth">
-                <Github className="h-6 w-6" />
-              </a>
-              <a href="https://instagram.com/justmeakshaya" target="_blank" rel="noopener noreferrer"
-                 className="text-muted-foreground hover:text-foreground transition-smooth">
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a href="mailto:akshayashreebaskar.ai@gmail.com"
-                 className="text-muted-foreground hover:text-foreground transition-smooth">
-                <Mail className="h-6 w-6" />
-              </a>
+              <div className="flex gap-4 pt-4">
+                <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank" rel="noopener noreferrer" 
+                   className="text-muted-foreground hover:text-foreground transition-smooth">
+                  <Linkedin className="h-6 w-6" />
+                </a>
+                <a href="https://github.com/akshayashreeya" target="_blank" rel="noopener noreferrer"
+                   className="text-muted-foreground hover:text-foreground transition-smooth">
+                  <Github className="h-6 w-6" />
+                </a>
+                <a href="https://instagram.com/justmeakshaya" target="_blank" rel="noopener noreferrer"
+                   className="text-muted-foreground hover:text-foreground transition-smooth">
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href="mailto:akshayashreebaskar.ai@gmail.com"
+                   className="text-muted-foreground hover:text-foreground transition-smooth">
+                  <Mail className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
+            
+            {/* Profile Photo */}
+            <div className="flex justify-center md:justify-end">
+              <div className="relative">
+                <img 
+                  src={profileImage} 
+                  alt="Akshaya Shree Baskar - AI Engineer"
+                  className="w-80 h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 shadow-elegant"
+                />
+              </div>
             </div>
           </div>
         </div>
