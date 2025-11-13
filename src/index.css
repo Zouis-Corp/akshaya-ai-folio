@@ -69,12 +69,34 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 20px hsl(0 0% 100% / 0.3),
+                 0 0 40px hsl(0 0% 100% / 0.2),
+                 0 0 60px hsl(0 0% 100% / 0.1);
+  }
+  50% {
+    text-shadow: 0 0 30px hsl(0 0% 100% / 0.5),
+                 0 0 60px hsl(0 0% 100% / 0.3),
+                 0 0 90px hsl(0 0% 100% / 0.2);
+  }
+}
+
 .animate-wave {
   animation: wave 8s ease-in-out infinite;
 }
 
 .animate-wave-slow {
   animation: wave-slow 12s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-glow-delayed {
+  animation: glow 3s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 }
 
