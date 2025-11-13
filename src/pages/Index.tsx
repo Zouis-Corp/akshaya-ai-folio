@@ -6,6 +6,7 @@ import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookO
 import profileImage from "@/assets/profile.jpg";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useState, useEffect } from "react";
+import { Particles } from "@/components/Particles";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,8 +98,11 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Particle Background */}
+        <Particles />
+        
         {/* Animated Wave Background with Parallax */}
-        <div 
+        <div
           className="absolute inset-0 pointer-events-none opacity-10"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
@@ -319,7 +323,14 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-3xl font-bold mb-12">Featured Projects</h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="p-6 border-border hover:shadow-glow transition-smooth">
+            <Card 
+              className={`p-6 border-border hover:shadow-glow hover:-translate-y-2 transition-all duration-500 ${
+                projectsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{
+                transitionDelay: projectsSection.isVisible ? '100ms' : '0ms'
+              }}
+            >
               <div className="flex items-start justify-between mb-4">
                 <h4 className="text-xl font-semibold">AirREALM</h4>
                 <Badge>Patent Filed</Badge>
@@ -335,7 +346,14 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 border-border hover:shadow-glow transition-smooth">
+            <Card 
+              className={`p-6 border-border hover:shadow-glow hover:-translate-y-2 transition-all duration-500 ${
+                projectsSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{
+                transitionDelay: projectsSection.isVisible ? '300ms' : '0ms'
+              }}
+            >
               <div className="flex items-start justify-between mb-4">
                 <h4 className="text-xl font-semibold">Blog Generator</h4>
                 <Badge>AI/LLM</Badge>
