@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code, Menu } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
+import { useState } from "react";
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
   };
 
   const aboutSection = useIntersectionObserver({ threshold: 0.2 });
@@ -24,6 +29,8 @@ const Index = () => {
         <div className="bg-background/40 backdrop-blur-xl border border-border/50 rounded-2xl shadow-elegant px-6 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold tracking-tight">Akshaya Shree</h1>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:flex gap-8">
               <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-smooth">About</button>
               <button onClick={() => scrollToSection('experience')} className="text-muted-foreground hover:text-foreground transition-smooth">Experience</button>
@@ -31,6 +38,49 @@ const Index = () => {
               <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-smooth">Skills</button>
               <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">Contact</button>
             </div>
+
+            {/* Mobile Menu */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur-xl border-border/50">
+                <div className="flex flex-col gap-6 mt-8">
+                  <button 
+                    onClick={() => scrollToSection('about')} 
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left py-2"
+                  >
+                    About
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('experience')} 
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left py-2"
+                  >
+                    Experience
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('projects')} 
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left py-2"
+                  >
+                    Projects
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('skills')} 
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left py-2"
+                  >
+                    Skills
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')} 
+                    className="text-lg text-muted-foreground hover:text-foreground transition-smooth text-left py-2"
+                  >
+                    Contact
+                  </button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </nav>
