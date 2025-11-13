@@ -153,11 +153,19 @@ const Index = () => {
               className="space-y-8"
               style={{ transform: `translateY(${scrollY * 0.1}px)` }}
             >
-              <div className="space-y-4">
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
-                  AI Engineer &
+              <div className="space-y-4 relative">
+                <h2 className="text-5xl md:text-7xl font-bold tracking-tight relative group cursor-default">
+                  {/* Crosshair effect */}
+                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                    <span className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent -translate-x-1/2"></span>
+                    <span className="absolute left-0 top-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent -translate-y-1/2"></span>
+                  </span>
+                  
+                  <span className="relative inline-block animate-glow">
+                    AI Engineer &
+                  </span>
                   <br />
-                  <span className="text-muted-foreground">Innovation Specialist</span>
+                  <span className="text-muted-foreground relative inline-block animate-glow-delayed">Innovation Specialist</span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl">
                   Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs. 
