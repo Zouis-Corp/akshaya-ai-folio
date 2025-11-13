@@ -5,10 +5,20 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code, Menu } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -87,27 +97,58 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        {/* Animated Wave Background */}
-        <div className="absolute inset-0 pointer-events-none opacity-10">
-          <svg className="absolute bottom-0 w-full h-64 animate-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        {/* Animated Wave Background with Parallax */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-10"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        >
+          <svg 
+            className="absolute bottom-0 w-full h-64 animate-wave" 
+            viewBox="0 0 1440 320" 
+            preserveAspectRatio="none"
+            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+          >
             <path 
               fill="currentColor" 
               className="text-muted-foreground"
               d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             />
           </svg>
-          <svg className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <svg 
+            className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" 
+            viewBox="0 0 1440 320" 
+            preserveAspectRatio="none"
+            style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+          >
             <path 
               fill="currentColor" 
               className="text-muted-foreground"
               d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,154.7C672,160,768,224,864,234.7C960,245,1056,203,1152,181.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             />
           </svg>
+          <svg 
+            className="absolute bottom-0 w-full h-64 opacity-30" 
+            viewBox="0 0 1440 320" 
+            preserveAspectRatio="none"
+            style={{ 
+              animation: 'wave 25s ease-in-out infinite',
+              transform: `translateY(${scrollY * 0.15}px)`
+            }}
+          >
+            <path 
+              fill="currentColor" 
+              className="text-muted-foreground"
+              d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,154.7C960,149,1056,171,1152,186.7C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
+          </svg>
         </div>
         
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div 
+              className="space-y-8"
+              style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+            >
               <div className="space-y-4">
                 <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
                   AI Engineer &
@@ -153,7 +194,10 @@ const Index = () => {
             </div>
             
             {/* Profile Photo */}
-            <div className="flex justify-center md:justify-end">
+            <div 
+              className="flex justify-center md:justify-end"
+              style={{ transform: `translateY(${scrollY * -0.05}px)` }}
+            >
               <div className="relative">
                 <img 
                   src={profileImage} 
