@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Github, Linkedin, Mail, Instagram, FileText, ExternalLink, Award, BookOpen, Briefcase, Code, Menu } from "lucide-react";
-import profileImage from "@/assets/profile.jpg";
+import profileImage from "@/assets/profile.png";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 import { useState, useEffect } from "react";
 import { Particles } from "@/components/Particles";
@@ -139,6 +139,18 @@ const Index = () => {
         {/* Particle Background */}
         <Particles />
         
+        {/* Profile Image - Behind Waves */}
+        <div 
+          className="absolute right-0 md:right-32 top-1/2 -translate-y-1/2 z-0 pointer-events-none"
+          style={{ transform: `translateY(calc(-50% + ${scrollY * -0.05}px))` }}
+        >
+          <img 
+            src={profileImage} 
+            alt="Akshaya Shree Baskar - AI Engineer"
+            className="w-96 h-96 md:w-[32rem] md:h-[32rem] object-cover opacity-90"
+          />
+        </div>
+        
         {/* Animated Wave Background with Parallax */}
         <div
           className="absolute inset-0 pointer-events-none opacity-10"
@@ -247,19 +259,8 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Profile Photo */}
-            <div 
-              className="flex justify-center md:justify-end"
-              style={{ transform: `translateY(${scrollY * -0.05}px)` }}
-            >
-              <div className="relative">
-                <img 
-                  src={profileImage} 
-                  alt="Akshaya Shree Baskar - AI Engineer"
-                  className="w-80 h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 shadow-elegant"
-                />
-              </div>
-            </div>
+            {/* Empty space for layout balance */}
+            <div className="hidden md:block"></div>
           </div>
         </div>
       </section>
