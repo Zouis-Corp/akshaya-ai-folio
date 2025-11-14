@@ -141,13 +141,12 @@ const Index = () => {
         
         {/* Profile Image - Behind Waves (Desktop Only) */}
         <div 
-          className="hidden md:block absolute right-0 md:right-32 top-1/2 -translate-y-1/4 z-0 pointer-events-none"
-          style={{ transform: `translateY(calc(-25% + ${scrollY * -0.05}px))` }}
+          className="hidden md:block absolute right-0 md:right-24 top-20 z-0 pointer-events-none"
         >
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-72 h-72 md:w-96 md:h-96 object-cover grayscale opacity-70"
+            className="w-72 h-72 md:w-[28rem] md:h-[28rem] object-cover object-top grayscale opacity-70"
           />
         </div>
         
