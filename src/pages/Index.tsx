@@ -139,9 +139,9 @@ const Index = () => {
         {/* Particle Background */}
         <Particles />
         
-        {/* Profile Image - Behind Waves */}
+        {/* Profile Image - Behind Waves (Desktop Only) */}
         <div 
-          className="absolute right-0 md:right-32 top-1/2 -translate-y-1/4 z-0 pointer-events-none"
+          className="hidden md:block absolute right-0 md:right-32 top-1/2 -translate-y-1/4 z-0 pointer-events-none"
           style={{ transform: `translateY(calc(-25% + ${scrollY * -0.05}px))` }}
         >
           <img 
@@ -256,6 +256,15 @@ const Index = () => {
                    className="text-muted-foreground hover:text-foreground transition-smooth">
                   <Mail className="h-6 w-6" />
                 </a>
+              </div>
+              
+              {/* Profile Image - Mobile Only */}
+              <div className="md:hidden flex justify-center pt-8">
+                <img 
+                  src={profileImage} 
+                  alt="Akshaya Shree Baskar - AI Engineer"
+                  className="w-64 h-64 object-cover grayscale opacity-70"
+                />
               </div>
             </div>
             
