@@ -135,24 +135,24 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-32 pb-32 md:pb-40 px-6 relative overflow-hidden md:overflow-visible">
         {/* Particle Background */}
         <Particles />
         
         {/* Profile Image - Behind Waves (Desktop Only) */}
         <div 
-          className="hidden md:block absolute right-0 md:right-24 top-20 z-0 pointer-events-none"
+          className="hidden md:block absolute right-0 md:right-24 top-16 z-0 pointer-events-none"
         >
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-72 h-72 md:w-[28rem] md:h-[28rem] object-cover object-top grayscale opacity-70"
+            className="w-72 h-auto md:w-[30rem] md:h-auto object-contain grayscale opacity-70"
           />
         </div>
         
         {/* Animated Wave Background with Parallax */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-10"
+          className="absolute inset-x-0 bottom-0 h-64 pointer-events-none opacity-10"
           style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <svg 
