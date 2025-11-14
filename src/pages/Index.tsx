@@ -11,6 +11,13 @@ import { Particles } from "@/components/Particles";
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [typedText1, setTypedText1] = useState("");
+  const [typedText2, setTypedText2] = useState("");
+  const [showCursor1, setShowCursor1] = useState(true);
+  const [showCursor2, setShowCursor2] = useState(false);
+  
+  const text1 = "AI Engineer &";
+  const text2 = "Innovation Specialist";
   
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +27,37 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  // Typing animation effect
+  useEffect(() => {
+    let timeout1: NodeJS.Timeout;
+    let timeout2: NodeJS.Timeout;
+    
+    // Type first line
+    if (typedText1.length < text1.length) {
+      timeout1 = setTimeout(() => {
+        setTypedText1(text1.slice(0, typedText1.length + 1));
+      }, 100);
+    } else {
+      // After first line is done, hide its cursor and start second line
+      setShowCursor1(false);
+      setShowCursor2(true);
+      
+      if (typedText2.length < text2.length) {
+        timeout2 = setTimeout(() => {
+          setTypedText2(text2.slice(0, typedText2.length + 1));
+        }, 100);
+      } else {
+        // Hide second cursor after typing is complete
+        setTimeout(() => setShowCursor2(false), 500);
+      }
+    }
+    
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
+  }, [typedText1, typedText2]);
   
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -162,10 +200,14 @@ const Index = () => {
                   </span>
                   
                   <span className="relative inline-block animate-glow">
-                    AI Engineer &
+                    {typedText1}
+                    {showCursor1 && <span className="animate-pulse">|</span>}
                   </span>
                   <br />
-                  <span className="text-muted-foreground relative inline-block animate-glow-delayed">Innovation Specialist</span>
+                  <span className="text-muted-foreground relative inline-block animate-glow-delayed">
+                    {typedText2}
+                    {showCursor2 && <span className="animate-pulse">|</span>}
+                  </span>
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl">
                   Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs. 
