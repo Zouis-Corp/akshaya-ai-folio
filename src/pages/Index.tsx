@@ -141,13 +141,13 @@ const Index = () => {
         
         {/* Profile Image - Behind Waves */}
         <div 
-          className="absolute right-0 md:right-32 top-1/2 -translate-y-1/2 z-0 pointer-events-none"
-          style={{ transform: `translateY(calc(-50% + ${scrollY * -0.05}px))` }}
+          className="absolute right-0 md:right-32 top-1/2 -translate-y-1/4 z-0 pointer-events-none"
+          style={{ transform: `translateY(calc(-25% + ${scrollY * -0.05}px))` }}
         >
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-96 h-96 md:w-[32rem] md:h-[32rem] object-cover opacity-90"
+            className="w-72 h-72 md:w-96 md:h-96 object-cover grayscale opacity-70"
           />
         </div>
         
