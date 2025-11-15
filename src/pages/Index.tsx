@@ -141,25 +141,23 @@ const Index = () => {
         
         {/* Profile Image - Behind Waves (Desktop Only) */}
         <div 
-          className="hidden md:block absolute right-0 md:right-24 top-16 z-0 pointer-events-none"
+          className="hidden md:block absolute right-0 md:right-24 bottom-0 z-0 pointer-events-none"
         >
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-72 h-auto md:w-[30rem] md:h-auto object-contain grayscale opacity-70"
+            className="w-72 h-auto md:w-[30rem] md:h-auto object-contain object-bottom grayscale opacity-70"
           />
         </div>
         
-        {/* Animated Wave Background with Parallax */}
+        {/* Animated Wave Background */}
         <div
           className="absolute inset-x-0 bottom-0 h-64 pointer-events-none opacity-10"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}
         >
           <svg 
             className="absolute bottom-0 w-full h-64 animate-wave" 
             viewBox="0 0 1440 320" 
             preserveAspectRatio="none"
-            style={{ transform: `translateY(${scrollY * 0.3}px)` }}
           >
             <path 
               fill="currentColor" 
@@ -171,7 +169,6 @@ const Index = () => {
             className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" 
             viewBox="0 0 1440 320" 
             preserveAspectRatio="none"
-            style={{ transform: `translateY(${scrollY * 0.2}px)` }}
           >
             <path 
               fill="currentColor" 
@@ -183,10 +180,7 @@ const Index = () => {
             className="absolute bottom-0 w-full h-64 opacity-30" 
             viewBox="0 0 1440 320" 
             preserveAspectRatio="none"
-            style={{ 
-              animation: 'wave 25s ease-in-out infinite',
-              transform: `translateY(${scrollY * 0.15}px)`
-            }}
+            style={{ animation: 'wave 25s ease-in-out infinite' }}
           >
             <path 
               fill="currentColor" 
