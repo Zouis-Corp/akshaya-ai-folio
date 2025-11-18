@@ -152,7 +152,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-32 md:pb-40 px-4 md:px-6 relative overflow-hidden">
+      <section className="pt-32 pb-0 md:pb-40 px-4 md:px-6 relative overflow-hidden">
         {/* Particle Background */}
         <Particles />
         
@@ -269,11 +269,11 @@ const Index = () => {
               </div>
               
               {/* Profile Image - Mobile Only */}
-              <div className="md:hidden flex justify-center pt-8">
+              <div className="md:hidden flex justify-center pt-12 -mb-8">
                 <img 
                   src={profileImage} 
                   alt="Akshaya Shree Baskar - AI Engineer"
-                  className="w-64 h-64 object-cover grayscale opacity-70"
+                  className="w-80 h-auto object-contain grayscale opacity-70"
                 />
               </div>
             </div>
