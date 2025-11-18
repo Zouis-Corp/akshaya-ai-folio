@@ -541,58 +541,65 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section 
-        ref={contactSection.ref as React.RefObject<HTMLElement>}
-        id="contact" 
-        className={`py-20 px-6 transition-all duration-1000 ${
-          contactSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
-        <div className="container mx-auto max-w-4xl text-center">
-          <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
-          <p className="text-xl text-muted-foreground mb-12">
-            I'm always interested in hearing about new opportunities, collaborations, and innovative AI projects.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <Card className="p-6 border-border hover:shadow-glow transition-smooth">
-              <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
-              <h4 className="font-semibold mb-2">Email</h4>
-              <a href="mailto:akshayashreebaskar.ai@gmail.com" className="text-muted-foreground hover:text-foreground">
-                akshayashreebaskar.ai@gmail.com
-              </a>
-            </Card>
+      <section
+  ref={contactSection.ref as React.RefObject<HTMLElement>}
+  id="contact"
+  className={`
+    py-20 px-4 sm:px-6 transition-all duration-1000 
+    ${contactSection.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+  `}
+>
+  <div className="container mx-auto max-w-full sm:max-w-4xl text-center">
+    <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
+    <p className="text-xl text-muted-foreground mb-12">
+      I'm always interested in hearing about new opportunities, collaborations, and innovative AI projects.
+    </p>
 
-            <Card className="p-6 border-border hover:shadow-glow transition-smooth">
-              <Briefcase className="h-8 w-8 text-primary mx-auto mb-4" />
-              <h4 className="font-semibold mb-2">Location</h4>
-              <p className="text-muted-foreground">Tiruchirappalli, Tamil Nadu</p>
-            </Card>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <Card className="w-full p-6 border-border hover:shadow-glow transition-smooth">
+        <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
+        <h4 className="font-semibold mb-2">Email</h4>
+        <a
+          href="mailto:akshayashreebaskar.ai@gmail.com"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          akshayashreebaskar.ai@gmail.com
+        </a>
+      </Card>
 
-          <div className="flex justify-center gap-4">
-            <Button variant="default" size="lg" asChild>
-              <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-5 w-5" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button variant="secondary" size="lg" asChild>
-              <a href="https://github.com/akshayashreeya" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5" />
-                GitHub
-              </a>
-            </Button>
-            <Button variant="secondary" size="lg" asChild>
-              <a href="https://medium.com/@Akshaya-TechandThoughts" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-2 h-5 w-5" />
-                Blog
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <Card className="w-full p-6 border-border hover:shadow-glow transition-smooth">
+        <Briefcase className="h-8 w-8 text-primary mx-auto mb-4" />
+        <h4 className="font-semibold mb-2">Location</h4>
+        <p className="text-muted-foreground">Tiruchirappalli, Tamil Nadu</p>
+      </Card>
+    </div>
 
+    <div className="flex flex-col sm:flex-row justify-center gap-4">
+      <Button className="w-full sm:w-auto" variant="default" size="lg" asChild>
+        <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank">
+          <Linkedin className="mr-2 h-5 w-5" />
+          LinkedIn
+        </a>
+      </Button>
+
+      <Button className="w-full sm:w-auto" variant="secondary" size="lg" asChild>
+        <a href="https://github.com/akshayashreeya" target="_blank">
+          <Github className="mr-2 h-5 w-5" />
+          GitHub
+        </a>
+      </Button>
+
+      <Button className="w-full sm:w-auto" variant="secondary" size="lg" asChild>
+        <a href="https://medium.com/@Akshaya-TechandThoughts" target="_blank">
+          <FileText className="mr-2 h-5 w-5" />
+          Blog
+        </a>
+      </Button>
+    </div>
+  </div>
+</section>
+
+      
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-border">
         <div className="container mx-auto max-w-6xl">
