@@ -152,137 +152,117 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-0 md:pb-40 px-4 md:px-6 relative overflow-hidden">
-        {/* Particle Background */}
-        <Particles />
-        
-        {/* Profile Image - Behind Waves (Desktop Only) */}
-        <div 
-          className="hidden md:block absolute right-0 md:right-20 bottom-0 z-0 pointer-events-none max-w-[30rem]"
-        >
+<section className="pt-32 pb-0 md:pb-40 px-4 md:px-6 relative overflow-hidden">
+
+  {/* Particle Background */}
+  <Particles />
+
+  {/* Desktop Profile Image */}
+  <div className="hidden md:block absolute right-0 md:right-20 bottom-0 z-0 pointer-events-none max-w-[30rem]">
+    <img 
+      src={profileImage} 
+      alt="Akshaya Shree Baskar - AI Engineer"
+      className="w-full h-auto object-contain object-bottom grayscale opacity-70"
+    />
+  </div>
+
+  {/* WAVE BACKGROUND — unchanged */}
+  <div className="absolute inset-x-0 bottom-0 h-64 pointer-events-none opacity-10">
+    <svg className="absolute bottom-0 w-full h-64 animate-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="currentColor" className="text-muted-foreground"
+        d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+    </svg>
+
+    <svg className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="currentColor" className="text-muted-foreground"
+        d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,154.7C672,160,768,224,864,234.7C960,245,1056,203,1152,181.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+    </svg>
+
+    <svg className="absolute bottom-0 w-full h-64 opacity-30" viewBox="0 0 1440 320" preserveAspectRatio="none"
+      style={{ animation: 'wave 25s ease-in-out infinite' }}>
+      <path fill="currentColor" className="text-muted-foreground"
+        d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,154.7C960,149,1056,171,1152,186.7C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+    </svg>
+  </div>
+
+  <div className="container mx-auto max-w-6xl relative z-10 px-0">
+    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+
+      {/* LEFT TEXT BLOCK */}
+      <div className="space-y-8">
+
+        <div className="space-y-4 relative">
+
+          {/* 🔥 Glow disabled on Mobile, enabled only on Desktop */}
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
+            <span className="relative inline-block animate-none md:animate-glow">
+              {typedText1}
+              {showCursor1 && <span className="animate-pulse">|</span>}
+            </span>
+            <br />
+            <span className="text-muted-foreground relative inline-block animate-none md:animate-glow-delayed">
+              {typedText2}
+              {showCursor2 && <span className="animate-pulse">|</span>}
+            </span>
+          </h2>
+
+          <p className="text-xl text-muted-foreground max-w-2xl">
+            Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs.
+            Currently delivering AI solutions at NIMIR Corporation.
+          </p>
+        </div>
+
+        {/* BUTTONS */}
+        <div className="flex flex-wrap gap-4">
+          <Button variant="default" size="lg" asChild>
+            <a href="#contact">Get in Touch</a>
+          </Button>
+          <Button variant="secondary" size="lg" asChild>
+            <a href="https://medium.com/@Akshaya-TechandThoughts" target="_blank" rel="noopener noreferrer">
+              <FileText className="mr-2 h-5 w-5" />
+              Read Blog
+            </a>
+          </Button>
+        </div>
+
+        {/* SOCIAL ICONS */}
+        <div className="flex gap-4 pt-4">
+          <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/"
+             className="text-muted-foreground hover:text-foreground transition-smooth">
+            <Linkedin className="h-6 w-6" />
+          </a>
+
+          <a href="https://github.com/akshayashreeya"
+             className="text-muted-foreground hover:text-foreground transition-smooth">
+            <Github className="h-6 w-6" />
+          </a>
+
+          <a href="https://instagram.com/justmeakshaya"
+             className="text-muted-foreground hover:text-foreground transition-smooth">
+            <Instagram className="h-6 w-6" />
+          </a>
+
+          <a href="mailto:akshayashreebaskar.ai@gmail.com"
+             className="text-muted-foreground hover:text-foreground transition-smooth">
+            <Mail className="h-6 w-6" />
+          </a>
+        </div>
+
+        {/* MOBILE IMAGE */}
+        <div className="md:hidden flex justify-center pt-12 -mb-8">
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-full h-auto object-contain object-bottom grayscale opacity-70"
+            className="w-80 h-auto object-contain grayscale opacity-70"
           />
         </div>
-        
-        {/* Animated Wave Background */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-64 pointer-events-none opacity-10"
-        >
-          <svg 
-            className="absolute bottom-0 w-full h-64 animate-wave" 
-            viewBox="0 0 1440 320" 
-            preserveAspectRatio="none"
-          >
-            <path 
-              fill="currentColor" 
-              className="text-muted-foreground"
-              d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            />
-          </svg>
-          <svg 
-            className="absolute bottom-0 w-full h-64 animate-wave-slow opacity-50" 
-            viewBox="0 0 1440 320" 
-            preserveAspectRatio="none"
-          >
-            <path 
-              fill="currentColor" 
-              className="text-muted-foreground"
-              d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,154.7C672,160,768,224,864,234.7C960,245,1056,203,1152,181.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            />
-          </svg>
-          <svg 
-            className="absolute bottom-0 w-full h-64 opacity-30" 
-            viewBox="0 0 1440 320" 
-            preserveAspectRatio="none"
-            style={{ animation: 'wave 25s ease-in-out infinite' }}
-          >
-            <path 
-              fill="currentColor" 
-              className="text-muted-foreground"
-              d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,197.3C672,192,768,160,864,154.7C960,149,1056,171,1152,186.7C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            />
-          </svg>
-        </div>
-        
-        <div className="container mx-auto max-w-6xl relative z-10 px-0">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div 
-              className="space-y-8"
-              style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-            >
-              <div className="space-y-4 relative">
-                <h2 className="text-5xl md:text-7xl font-bold tracking-tight relative group cursor-default">
-                  {/* Crosshair effect */}
-                  <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <span className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent -translate-x-1/2"></span>
-                    <span className="absolute left-0 top-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent -translate-y-1/2"></span>
-                  </span>
-                  
-                  <span className="relative inline-block animate-glow">
-                    {typedText1}
-                    {showCursor1 && <span className="animate-pulse">|</span>}
-                  </span>
-                  <br />
-                  <span className="text-muted-foreground relative inline-block animate-glow-delayed">
-                    {typedText2}
-                    {showCursor2 && <span className="animate-pulse">|</span>}
-                  </span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl">
-                  Building human-centered AI applications with expertise in Generative AI, Computer Vision, and LLMs. 
-                  Currently delivering AI solutions at NIMIR Corporation.
-                </p>
-              </div>
-            
-            <div className="flex flex-wrap gap-4">
-              <Button variant="default" size="lg" asChild>
-                <a href="#contact">Get in Touch</a>
-              </Button>
-              <Button variant="secondary" size="lg" asChild>
-                <a href="https://medium.com/@Akshaya-TechandThoughts" target="_blank" rel="noopener noreferrer">
-                  <FileText className="mr-2 h-5 w-5" />
-                  Read Blog
-                </a>
-              </Button>
-            </div>
 
-              <div className="flex gap-4 pt-4">
-                <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank" rel="noopener noreferrer" 
-                   className="text-muted-foreground hover:text-foreground transition-smooth">
-                  <Linkedin className="h-6 w-6" />
-                </a>
-                <a href="https://github.com/akshayashreeya" target="_blank" rel="noopener noreferrer"
-                   className="text-muted-foreground hover:text-foreground transition-smooth">
-                  <Github className="h-6 w-6" />
-                </a>
-                <a href="https://instagram.com/justmeakshaya" target="_blank" rel="noopener noreferrer"
-                   className="text-muted-foreground hover:text-foreground transition-smooth">
-                  <Instagram className="h-6 w-6" />
-                </a>
-                <a href="mailto:akshayashreebaskar.ai@gmail.com"
-                   className="text-muted-foreground hover:text-foreground transition-smooth">
-                  <Mail className="h-6 w-6" />
-                </a>
-              </div>
-              
-              {/* Profile Image - Mobile Only */}
-              <div className="md:hidden flex justify-center pt-12 -mb-8">
-                <img 
-                  src={profileImage} 
-                  alt="Akshaya Shree Baskar - AI Engineer"
-                  className="w-80 h-auto object-contain grayscale opacity-70"
-                />
-              </div>
-            </div>
-            
-            {/* Empty space for layout balance */}
-            <div className="hidden md:block"></div>
-          </div>
-        </div>
-      </section>
+      </div>
+
+      <div className="hidden md:block"></div>
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section 
