@@ -72,27 +72,16 @@ const Index = () => {
   const contactSection = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
-        <div className="bg-background/40 backdrop-blur-xl border border-border/50 rounded-2xl shadow-elegant px-6 py-4">
+        <div className="bg-background/40 backdrop-blur-xl border border-border/50 rounded-2xl shadow-elegant px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold tracking-tight">Akshaya Shree</h1>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex gap-8">
-              <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-smooth">About</button>
-              <button onClick={() => scrollToSection('experience')} className="text-muted-foreground hover:text-foreground transition-smooth">Experience</button>
-              <button onClick={() => scrollToSection('projects')} className="text-muted-foreground hover:text-foreground transition-smooth">Projects</button>
-              <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-smooth">Skills</button>
-              <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">Contact</button>
-            </div>
-
-            {/* Mobile Menu */}
+            {/* Mobile Menu Icon - First on mobile */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className="h-8 w-8">
+                  <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-background/95 backdrop-blur-xl border-border/50">
@@ -130,23 +119,51 @@ const Index = () => {
                 </div>
               </SheetContent>
             </Sheet>
+            
+            {/* Name - Center on mobile, left on desktop */}
+            <h1 className="text-lg md:text-xl font-bold tracking-tight flex-1 md:flex-none text-center md:text-left">Akshaya Shree</h1>
+            
+            {/* Social Icons - Mobile only */}
+            <div className="flex md:hidden gap-3">
+              <a href="https://github.com/akshayashreeya" target="_blank" rel="noopener noreferrer"
+                 className="text-muted-foreground hover:text-foreground transition-smooth">
+                <Github className="h-5 w-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/akshaya-shree-b-496b79229/" target="_blank" rel="noopener noreferrer" 
+                 className="text-muted-foreground hover:text-foreground transition-smooth">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://instagram.com/justmeakshaya" target="_blank" rel="noopener noreferrer"
+                 className="text-muted-foreground hover:text-foreground transition-smooth">
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex gap-8">
+              <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-smooth">About</button>
+              <button onClick={() => scrollToSection('experience')} className="text-muted-foreground hover:text-foreground transition-smooth">Experience</button>
+              <button onClick={() => scrollToSection('projects')} className="text-muted-foreground hover:text-foreground transition-smooth">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="text-muted-foreground hover:text-foreground transition-smooth">Skills</button>
+              <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">Contact</button>
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-32 md:pb-40 px-6 relative overflow-hidden md:overflow-visible">
+      <section className="pt-32 pb-32 md:pb-40 px-4 md:px-6 relative overflow-hidden">
         {/* Particle Background */}
         <Particles />
         
         {/* Profile Image - Behind Waves (Desktop Only) */}
         <div 
-          className="hidden md:block absolute right-0 md:right-24 bottom-0 z-0 pointer-events-none"
+          className="hidden md:block absolute right-0 md:right-20 bottom-0 z-0 pointer-events-none max-w-[30rem]"
         >
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-72 h-auto md:w-[30rem] md:h-auto object-contain object-bottom grayscale opacity-70"
+            className="w-full h-auto object-contain object-bottom grayscale opacity-70"
           />
         </div>
         
@@ -190,8 +207,8 @@ const Index = () => {
           </svg>
         </div>
         
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto max-w-6xl relative z-10 px-0">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div 
               className="space-y-8"
               style={{ transform: `translateY(${scrollY * 0.1}px)` }}
