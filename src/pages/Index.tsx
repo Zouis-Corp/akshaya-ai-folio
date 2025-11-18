@@ -557,15 +557,15 @@ const Index = () => {
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
       <Card className="w-full p-6 border-border hover:shadow-glow transition-smooth">
-        <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
-        <h4 className="font-semibold mb-2">Email</h4>
-        <a
-          href="mailto:akshayashreebaskar.ai@gmail.com"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          akshayashreebaskar.ai@gmail.com
-        </a>
-      </Card>
+  <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
+  <h4 className="font-semibold mb-2">Email</h4>
+  <a
+    href="mailto:akshayashreebaskar.ai@gmail.com"
+    className="text-muted-foreground hover:text-foreground break-all text-center block"
+  >
+    akshayashreebaskar.ai@gmail.com
+  </a>
+</Card>
 
       <Card className="w-full p-6 border-border hover:shadow-glow transition-smooth">
         <Briefcase className="h-8 w-8 text-primary mx-auto mb-4" />
