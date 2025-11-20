@@ -158,7 +158,7 @@ const Index = () => {
   <Particles />
 
   {/* Desktop Profile Image */}
-  <div className="hidden md:block absolute right-0 md:right-20 bottom-0 z-0 pointer-events-none max-w-[30rem]">
+  <div className="hidden md:block absolute right-0 md:right-20 bottom-0 z-0 pointer-events-none max-w-[40rem]">
     <img 
       src={profileImage} 
       alt="Akshaya Shree Baskar - AI Engineer"
@@ -253,7 +253,7 @@ const Index = () => {
           <img 
             src={profileImage} 
             alt="Akshaya Shree Baskar - AI Engineer"
-            className="w-80 h-auto object-contain grayscale opacity-70"
+            className="w-96 h-auto object-contain grayscale opacity-70"
           />
         </div>
 
